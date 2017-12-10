@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>WebAssembly Example</title>
+  </head>
+  <body>
+    <!-- This will load the WebAssembly module and run its main. --> 
+    <script src="func.js"></script>
+    <p>Random value:</p>
+    <p id="idrand"> ...</p>
+    <p>Fibonacci (42):</p>
+    <p id="idfib"> ...</p>
+    <script>
+    var rand = _crand();
+    document.getElementById("idrand").innerHTML = rand;
+    var fib42 = _fib(42);
+    document.getElementById("idfib").innerHTML = fib42;
+    </script>
+  </body>
+</html>
