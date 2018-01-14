@@ -1,0 +1,18 @@
+version: '2'
+services:
+  flyway:
+    image: boxfuse/flyway:latest-alpine
+    command: -url=jdbc:postgresql://db:5432/postgres -schemas=demo -user=postgres -password=P@ssw0rd -outOfOrder=true -locations=db/migration,filesystem:sql -callbacks=db.migration.ExampleFlywayCallback migrate -X
+    volumes:
+      - ./conf:/flyway/conf 
+      - ./sql:/flyway/sql 
+      - ./target:/flyway/jars
+    depends_on:
+      - db
+  db:
+    image: postgres:10.1-alpine
+    restart: always
+    environment:
+      - "POSTGRES_PASSWORD: P@ssw0rd"
+    ports:
+      - 5432:5432
