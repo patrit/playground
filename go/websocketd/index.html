@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Web Socket with websocketd</h2>
+
+<script>
+var ws = new WebSocket('ws://localhost:8088/cmd.sh?delay=1.25');
+var x = document.getElementsByClassName("output");
+
+ws.onmessage = function(event) {
+  x[0].innerHTML = event.data;
+};
+</script>
+
+<pre class="output"></pre>
+
+</body>
+</html> 
+
