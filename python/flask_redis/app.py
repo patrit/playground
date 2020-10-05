@@ -28,10 +28,11 @@ def get_list(key):
     return json.dumps([x.decode("utf-8") for x in db.lrange(key, 0, -1)]), 200
 
 if __name__ == "__main__":
-    for i in range(100000):
+    for i in range(300000):
         db.delete(f"key{i}")
         db.delete(f"list{i}")
-        lst = [f"value_{i}_{j}" for j in range(20)]
-        db.set(f"key{i}", lst)
+        lst = [f"value_{i}_{j}" for j in range(10)]
+        db.set(f"key{i}", "0010101001001010010110001")
         db.lpush(f"list{i}", *lst)
+    print("Starting application")
     app.run()
