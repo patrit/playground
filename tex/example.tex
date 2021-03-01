@@ -1,0 +1,110 @@
+\documentclass[english, a4paper]{letter}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{fancyhdr}
+
+\usepackage{times}
+\usepackage{babel}
+\usepackage{multirow}
+\usepackage{lipsum}
+\usepackage{lastpage}
+\usepackage{arydshln}
+\usepackage{ragged2e}
+\usepackage{array}
+\usepackage{booktabs}
+
+\usepackage{graphicx}
+\graphicspath{ {./} }
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Share \LaTeX}
+\lhead{Guides and tutorials}
+\cfoot{\thepage\ / \pageref{LastPage}}
+
+
+\begin{document}
+
+\begin{flushleft}
+\Large{Example Document for Sandra Muster}
+\end{flushleft}
+  
+An example of \texttt{\textbackslash multicolumn}.
+
+\vspace{\baselineskip}
+ffo \par 
+bar \par 
+
+\lipsum
+
+\vbox{%
+\begin{flushleft}
+ffo Mauris ut est.  Ut quis purus.  Sed ac odio.  Sed vehicula hendrerit sem.  Duis non odio.Morbi ut dui.  Sed accumsan risus eget odio.  In hac habitasse platea di
+\end{flushleft}
+
+\begin{flushleft}
+ssSed commodo posuere pede.  Mauris ut est.  Ut quis purus.  Sed ac odio.  Sed vehicula hendrerit sem.  Duis non odio.Morbi ut dui.  Sed accumsan risus eget odio.  In hac habitasse platea dictumst.  Pellentesque non elit.  Fusce sed justo euurna porta tincidunt. Mauris felis odio, sollicitudin sed, volutpat a, ornare ac, erat. Morbi quis dolor. Donec pellentesque,erat ac sagittis semper, nunc dui lobortis purus, quis congue purus metus ultricies tellus. Proin et quam. Class aptent tacitisociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.  Praesent sapien turpis, fermentum vel, eleifendfaucibus, vehicula eu, lacus. Sed commodo posuere pede.  Mauris ut est.  Ut quis purus.  Sed ac odio.  Sed vehicula hendrerit sem.  Duis non odio.Morbi ut dui.  Sed accumsan risus eget odio.  In hac habitasse platea dictumst.  Pellentesque non elit.  Fusce sed justo euurna porta tincidunt. Mauris felis odio, sollicitudin sed, volutpat a, ornare ac, erat. Morbi quis dolor. Donec pellentesque,erat ac sagittis semper, nunc dui lobortis purus, quis congue purus metus ultricies tellus. Proin et quam. Class aptent tacitisociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.  Praesent sapien turpis, fermentum vel, eleifendfaucibus, vehicula eu, lacus.
+\end{flushleft}
+}
+
+\newpage
+
+\begin{tabular}{%
+    >{\raggedright\arraybackslash}p{0.2\textwidth}%
+    >{\raggedright\arraybackslash}p{0.55\textwidth}%
+    >{\raggedleft\arraybackslash}p{0.15\textwidth}}
+\cline{1-3}
+\multicolumn{3}{|c|}{Team sheet} \\
+\cline{1-3}
+GKUUU & Paul Robinson & 12.00 \\
+LB \& & Lucus Radebe & 12.00 \\
+\cdashline{1-3}
+DC & Michael Duberry & 182.00 \\
+DC & Dominic Matteo  & 182.00\\
+RB & Didier Domi & 13552.00 \\
+\cdashline{1-3}
+MC kkjhk kjhkjhk ufgfgj & David Batty & 12.10 \\
+\cdashline{1-3}
+MC & Eirik Bakke & 132.00 \\
+MC & Jody Morris & 132.00 \\
+FW & Jamie McMaster  & 12.00\\
+ST & Alan Smith & 1233.00 \\
+ST & Mark Viduka & 12.00 \\
+\cline{1-3}
+\end{tabular}
+
+\vspace{\baselineskip}
+
+An example of \texttt{\textbackslash multirow}.
+
+\vspace{\baselineskip}
+
+\begin{flushright}
+\begin{tabular}{ll}
+  \includegraphics[scale=0.6]{sig} & \includegraphics[scale=0.6]{sig} \\
+  Signature 1 & Signature 2 \\
+\end{tabular}
+\end{flushright}
+
+\vspace{\baselineskip}
+
+\begin{tabular}{|l|l|l|}
+\cline{1-3}
+\multicolumn{3}{|c|}{Team sheet} \\
+\cline{1-3}
+Goalkeeper & GK & Paul Robinson \\ \cline{1-3}
+\multirow{4}{*}{Defenders} & LB & Lucus Radebe \\
+& DC & Michael Duberry \\
+& DC & Dominic Matteo \\
+& RB & Didier Domi \\ \cline{1-3}
+\multirow{3}{*}{Midfielders} & MC & David Batty \\
+ & MC & Eirik Bakke \\
+ & MC & Jody Morris \\ \cline{1-3}
+Forward & FW & Jamie McMaster \\ \cline{1-3}
+\multirow{2}{*}{Strikers} & ST & Alan Smith \\
+ & ST & Mark Viduka \\
+\cline{1-3}
+\end{tabular}
+
+\vspace{105mm}
+
+\end{document}
