@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=jaeger:4317
+      - OTEL_SERVICE_NAME=backend
+    volumes:
+      - ./web:/usr/share/nginx/html:ro
+  proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=jaeger:4317
+      - OTEL_SERVICE_NAME=proxy
+    ports:
+      - '8080:80'
+    volumes:
+      - ./web:/usr/share/nginx/html:ro
+  jaeger:
+    image: jaegertracing/all-in-one:1.53
+    restart: always
+    ports:
+      - "16686:16686"
+      - "4317:4317"
+    environment:
+      - LOG_LEVEL=debug

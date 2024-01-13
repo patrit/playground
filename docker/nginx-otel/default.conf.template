@@ -1,0 +1,23 @@
+# https://nginx.org/en/docs/ngx_otel_module.html
+
+otel_exporter {
+    endpoint $OTEL_EXPORTER_OTLP_ENDPOINT;
+}
+
+otel_trace on;
+otel_service_name $OTEL_SERVICE_NAME;
+
+server {
+    listen       80;
+    server_name  localhost;
+    otel_trace_context propagate;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+
+    location /proxy/ {
+        proxy_pass http://backend/;
+    }
+}
